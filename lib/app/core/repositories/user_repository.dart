@@ -1,12 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:foursys_test/app/core/constants/base_url.dart';
+import 'package:foursys_test/app/core/interfaces/http_client_interface.dart';
 import 'package:foursys_test/app/core/interfaces/user_repository_interface.dart';
 import 'package:foursys_test/app/core/models/user/user_model.dart';
 
 class UserRepository implements IUserRepository {
-  final Dio dio;
+  final IHttpClient httpService;
 
-  UserRepository(this.dio);
+  UserRepository(this.httpService);
 
   @override
   Future<UserList> getUsers({
@@ -15,7 +16,7 @@ class UserRepository implements IUserRepository {
     try {
       const url = "${BaseUrl.path}/users";
 
-      final response = await dio.get(
+      final response = await httpService.get(
         url,
         options: Options(headers: {'Authorization': 'Bearer $token'}),
       );

@@ -42,9 +42,10 @@ class _HomePageState extends State<HomePage> {
                   physics: const BouncingScrollPhysics(
                       parent: AlwaysScrollableScrollPhysics()),
                   slivers: [
-                    controller.posts.when(
+                    controller.posts.maybeWhen(
                       data: (data) => _onData(data),
-                      loading: () => SliverToBoxAdapter(
+                      error: (e) => _onError,
+                      orElse: () => SliverToBoxAdapter(
                         child: SizedBox(
                           height: MediaQuery.of(context).size.height,
                           child: const Center(
@@ -55,9 +56,6 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
-                      error: (e) => _onError,
-                      empty: () =>
-                          const SliverToBoxAdapter(child: SizedBox.shrink()),
                     )
                   ],
                 ),

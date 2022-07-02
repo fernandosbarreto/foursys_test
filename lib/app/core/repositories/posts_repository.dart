@@ -1,12 +1,13 @@
 import 'package:dio/dio.dart';
 import 'package:foursys_test/app/core/constants/base_url.dart';
+import 'package:foursys_test/app/core/interfaces/http_client_interface.dart';
 import 'package:foursys_test/app/core/interfaces/posts_repository_interface.dart';
 import 'package:foursys_test/app/core/models/post/post_model.dart';
 
 class PostsRepository implements IPostsRepository {
-  final Dio dio;
+  final IHttpClient httpService;
 
-  PostsRepository(this.dio);
+  PostsRepository(this.httpService);
 
   @override
   Future<PostList> getPosts({
@@ -15,7 +16,7 @@ class PostsRepository implements IPostsRepository {
     try {
       const url = "${BaseUrl.path}/posts";
 
-      final response = await dio.get(
+      final response = await httpService.get(
         url,
         options: Options(headers: {'Authorization': 'Bearer $token'}),
       );
