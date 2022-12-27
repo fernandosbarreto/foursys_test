@@ -12,7 +12,7 @@ Project created for a selection process, the objective was to create a screen wi
 
 - **mobx** for state management [[pub.dev]](https://pub.dev/packages/mobx) [[doc]](https://pub.dev/documentation/mobx/latest/)
 
-- **freezed ** to help create models and display states [[pub.dev]](https://pub.dev/packages/freezed) [[doc]](https://pub.dev/documentation/freezed/latest/)
+- **freezed** to help create models and display states [[pub.dev]](https://pub.dev/packages/freezed) [[doc]](https://pub.dev/documentation/freezed/latest/)
 
 - **Flutter Modular** for dependency injection and routes [[pub.dev]](https://pub.dev/packages/flutter_modular) [[doc]](https://modular.flutterando.com.br/)
 
